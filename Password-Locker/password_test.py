@@ -57,10 +57,29 @@ class Testcredentials(unittest.TestCase):
       self.new_credentials = credentials("bint-den","instagram","password") # create contact object
 
     
-    def test_save_user(self):
+    def test_save_credentials(self):
         '''
         test_save_user test case to test if the new credentials is saved into
          the credentials list
         '''
         self.new_credentials.test_save_credentials() # saving the new credentials
+        self.assertEqual(len(credentials.credentials_list),1)
+
+
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        credentials.credentials_list = []
+
+
+    def test_delete_credentials(self):
+        '''
+        test_delete_credentials to test if we can remove a credentials from our credentials list
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = User("bint-den","password")         
+        test_credentials.save_credentials()
+
+        self.new_credentials.delete_credentials()# Deleting a credentials object
         self.assertEqual(len(credentials.credentials_list),1)
