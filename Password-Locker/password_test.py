@@ -1,6 +1,7 @@
 import unittest # Importing the unittest module
 from password import User # Importing the password class
 
+
 class TestUser(unittest.TestCase):
 
     def setUp(self):
@@ -18,9 +19,6 @@ class TestUser(unittest.TestCase):
       self.assertEqual(self.new_user.username, "Bintadam")
       self.assertEqual(self.new_user.password,"password")
         
-
-if __name__ == '__main__':
-    unittest.main()
     
     def test_save_user(self):
         '''
@@ -31,4 +29,8 @@ if __name__ == '__main__':
         self.assertEqual(len(User.user_list),1)
 
 
-   
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        User.user_list = []
