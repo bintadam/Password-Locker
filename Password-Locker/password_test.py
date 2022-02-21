@@ -34,3 +34,15 @@ class TestUser(unittest.TestCase):
         tearDown method that does clean up after each test case has run.
         '''
         User.user_list = []
+
+    def test_delete_user(self):
+        '''
+        test_delete_user to test if we can remove a contact from our user list
+        '''
+        self.new_user.save_user()
+        test_user = User("Bintadam","password")         
+        test_user.save_user()
+
+        self.new_user.delete_user()# Deleting a user object
+        self.assertEqual(len(User.user_list),1)
+    
