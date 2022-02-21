@@ -1,6 +1,6 @@
 import unittest # Importing the unittest module
 from password import User # Importing the password class
-from credentials import credentials # Importing the credential class
+from credential import credentials # Importing the credential class
 
 
 class TestUser(unittest.TestCase):
@@ -9,7 +9,7 @@ class TestUser(unittest.TestCase):
       '''
       Set up method to run before each test cases.
       '''
-      self.new_user = User("Bintadam","password") # create contact object
+      self.new_user = User("bint-den","password") # create contact object
 
 
     def test_init(self):
@@ -17,7 +17,7 @@ class TestUser(unittest.TestCase):
       test_init test case to test if the class has been initialized properly
       '''
 
-      self.assertEqual(self.new_user.username, "Bintadam")
+      self.assertEqual(self.new_user.username, "bint-den")
       self.assertEqual(self.new_user.password,"password")
         
     
@@ -41,9 +41,17 @@ class TestUser(unittest.TestCase):
         test_delete_user to test if we can remove a contact from our user list
         '''
         self.new_user.save_user()
-        test_user = User("Bintadam","password")         
+        test_user = User("bint-den","password")         
         test_user.save_user()
 
         self.new_user.delete_user()# Deleting a user object
         self.assertEqual(len(User.user_list),1)
     
+
+class Testcredentials(unittest.TestCase):
+
+    def setUp(self):
+      '''
+      Set up method to run before each test cases.
+      '''
+      self.new_credentials = credentials("bint-den","instagram","password") # create contact object
