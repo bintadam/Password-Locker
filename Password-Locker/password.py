@@ -20,4 +20,14 @@ class User:
       '''
         
       User.user_list.append(self)
+
+   def delete_user(self):
+      '''
+      delete_user method deletes contact objects into user_list
+      '''
+      
+      User.user_list.remove(self)
+
+
+   
    
