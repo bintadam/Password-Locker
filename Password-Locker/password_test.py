@@ -55,3 +55,12 @@ class Testcredentials(unittest.TestCase):
       Set up method to run before each test cases.
       '''
       self.new_credentials = credentials("bint-den","instagram","password") # create contact object
+
+    
+    def test_save_user(self):
+        '''
+        test_save_user test case to test if the new credentials is saved into
+         the credentials list
+        '''
+        self.new_credentials.test_save_credentials() # saving the new credentials
+        self.assertEqual(len(credentials.credentials_list),1)
