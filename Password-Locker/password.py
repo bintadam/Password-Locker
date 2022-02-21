@@ -1,10 +1,11 @@
 class user:
-   """
-   Class that generates new instances of users
-   """
-    def __init__(self,username,password):
-        '''
-        __init__ method that helps us define properties of a user.
+  '''
+  Class that generates new instances of users
 
-        self.username = username
-        self.password = password
+  user_list = [] # Empty user list
+ 
+  def __init__(self,username,password):
+    '''this method helps us define properties of a user'''
+
+    self.username = username
+    self.password = password
