@@ -27,4 +27,12 @@ def save_credentials(credentials):
     '''
     Function to save credentials
     '''
-    credentials.save_credentials()      
+    credentials.save_credentials()    
+
+def display_user():
+    '''
+    Function that returns all the saved users
+    '''
+    return User.display_user()
+    
+      
