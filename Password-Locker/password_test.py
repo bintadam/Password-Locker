@@ -116,4 +116,19 @@ class Testcredentials(unittest.TestCase):
             test_multiple = credentials("bint-den","instagram","password") 
             test_multiple.save_credentials()
             self.assertEqual(len(credentials.credentials_list),2)
+
+
+    def test_find_credentials_by_account(self):
+        '''
+        test to check if we can find a credentials by account and display information
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credentials = credentials("bint-den","instagram","password") 
+        test_credentials.save_credentials()
+
+        found_credentials= credentials.find_by_account("instagram")
+
+        self.assertEqual(found_credentials.account,test_credentials.account)
+        
     
