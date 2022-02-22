@@ -29,17 +29,25 @@ def save_credentials(credentials):
     '''
     credentials.save_credentials()    
 
-def display_user():
+def display_users():
     '''
     Function that returns all the saved users
     '''
-    return User.display_user()
+    return User.display_users()
 
-def display_credentials():
+def display_credential():
     '''
     Function that returns all the saved credentials
     '''
     return credentials.display_credentials()
+
+def log_in(user, password):
+    '''
+    Function to log in users
+    '''
+    verified_user = User.verified_users(user, password)
+    return verified_user
+    
 
 
     
