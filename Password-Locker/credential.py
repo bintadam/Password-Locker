@@ -7,11 +7,9 @@ class credentials:
 
    credentials_list = [] # Empty credentials list
  
-   def __init__(self,username, account,password):
-      '''
-      method that defines properties of a user
-      '''
-
+   def __init__(self, username, password, account):
+      
+      
       self.username = username
       self.password = password
       self.account = account
@@ -33,23 +31,23 @@ class credentials:
 
    
    @classmethod
-   def find_by_account(cls,account):
+   def find_by_account(cls, account):
       '''
       Method that looks for objects of the credential list of that account.
       '''
 
       for credentials in cls.credentials_list:
-          if credentials.username == username:
+          if credentials.account == account:
               return credentials
     
 
    @classmethod
-   def username_exist(cls,number):
+   def username_exists(cls,username):
       '''
       Method that checks if a username exists from the username list.
       '''
       for credentials in cls.credentials_list:
-          if credentials.username== username:
+          if credentials.username == username:
               return True
 
       return False 

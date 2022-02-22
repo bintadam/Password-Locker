@@ -9,7 +9,7 @@ class TestUser(unittest.TestCase):
       '''
       Set up method to run before each test cases.
       '''
-      self.new_user = User("bint-den","password") # create contact object
+      self.new_user = User("bint-den","password") 
 
 
     def test_init(self):
@@ -26,7 +26,7 @@ class TestUser(unittest.TestCase):
         test_save_user test case to test if the new user is saved into
          the user list
         '''
-        self.new_user.test_save_user() # saving the new user
+        self.new_user.save_user() # saving the new user
         self.assertEqual(len(User.user_list),1)
 
 
@@ -54,7 +54,7 @@ class Testcredentials(unittest.TestCase):
       '''
       Set up method to run before each test cases.
       '''
-      self.new_credentials = credentials("bint-den","instagram","password") # create contact object
+      self.new_credentials = credentials("bint-den", "password", "instagram") 
 
     
     def test_save_credentials(self):
@@ -62,7 +62,7 @@ class Testcredentials(unittest.TestCase):
         test_save_user test case to test if the new credentials is saved into
          the credentials list
         '''
-        self.new_credentials.test_save_credentials() # saving the new credentials
+        self.new_credentials.save_credentials() # saving the credentials
         self.assertEqual(len(credentials.credentials_list),1)
 
 
@@ -78,25 +78,27 @@ class Testcredentials(unittest.TestCase):
         test_delete_credentials to test if we can remove a credentials from our credentials list
         '''
         self.new_credentials.save_credentials()
-        test_credentials = User("bint-den","password")         
+        test_credentials = credentials("bint-den","password", "instagram")         
+        
         test_credentials.save_credentials()
 
-        self.new_credentials.delete_credentials()# Deleting a credentials object
+        self.new_credentials.delete_credentials()# Deleting a credentials 
         self.assertEqual(len(credentials.credentials_list),1)
 
 
     def test_username_exists(self):
         '''
-        test to check if we can return a Boolean  if we cannot find the username.
+        test to check if username exists
         '''
 
         self.new_credentials.save_credentials()
-        test_credentials= credentials("bintden",  "instagram","password") # new credentials
-        test_credentials.save_credentials()
+        test_username= credentials("bint-den", "password", "instagram")
+        
+        test_username.save_credentials()
 
-        credentials_exists = credentials.credentials_exist("bint-den")
+        username_exists = credentials.username_exists("bint-den")
 
-        self.assertTrue(credentials_exists)
+        self.assertTrue(username_exists)
     
     
     def test_display_all_credentials(self):
@@ -113,7 +115,7 @@ class Testcredentials(unittest.TestCase):
             objects to our credentials_list
             '''
             self.new_credentials.save_credentials()
-            test_multiple = credentials("bint-den","instagram","password") 
+            test_multiple = credentials("bint-den", "password", "instagram") 
             test_multiple.save_credentials()
             self.assertEqual(len(credentials.credentials_list),2)
 
@@ -124,11 +126,16 @@ class Testcredentials(unittest.TestCase):
         '''
 
         self.new_credentials.save_credentials()
-        test_credentials = credentials("bint-den","instagram","password") 
+        test_credentials = credentials("bint-den", "password", "instagram") 
         test_credentials.save_credentials()
 
         found_credentials= credentials.find_by_account("instagram")
 
-        self.assertEqual(found_credentials.account,test_credentials.account)
+        self.assertEqual(found_credentials.account, test_credentials.account)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
         
     
