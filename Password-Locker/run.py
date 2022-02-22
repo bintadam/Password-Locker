@@ -47,6 +47,14 @@ def log_in(user, password):
     '''
     verified_user = User.verified_users(user, password)
     return verified_user
+
+def generatepassword(stringLength=8):
+    '''
+    generate a strong random password consisting of string of letters and digits and special characters
+    '''
+    string.ascii_lowercase + string.digits + "!~#@$%&*^"
+    return ''.join(random.choice(password))
+    
     
 
 
