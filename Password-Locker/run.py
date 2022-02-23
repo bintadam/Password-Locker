@@ -51,7 +51,7 @@ def log_in(user, password):
     return verified_user
 
 
-def find_credential(account)
+def find_credential(account):
     '''
     Function to find credentials
     '''
@@ -75,8 +75,7 @@ def main():
     print(f"Hello {user_name}. what would you like to do?")
     print('\n')
 
-     while True:
-        print("-"*120)
+    while True:
         print
         ("Use these short codes : cc - create a new credentials, dc - display accounts, fc -find a credentials, cp -create password, dd - delete a credentials, lg - login to aacount, ex -exit the application ")
 
@@ -84,7 +83,6 @@ def main():
         if short_code == 'cc':
 
            print("")
-           print("-" * 120)
 
            print("New Credential")
            print(" ")
@@ -106,7 +104,6 @@ def main():
 
            save_credentials(create_credentials(name, user_name, pass_word, pass_word)) # create and save new credentials.
            print ('\n')
-           print("" * 90)
                             
            print(f"New account {name} {user_name} created")
            print ('\n')
@@ -121,8 +118,8 @@ def main():
 
                 for user in display_users():
                     print(f"{name} ")
-                for credentials in display_credentials()
-                    print(f "{pass_word}")       
+                for credentials in display_credentials():
+                    print(f"{pass_word}")       
                     print ("")
             else:
                 print('\n')
@@ -149,7 +146,8 @@ def main():
         elif short_code == "dd":
             print("Enter the account you want to delete")
             search_name = input().lower()
-            if find_credential = find_credential(search_name)
+            if find_credential (search_name):
+                search_credentials = find_credential(search_name)
                 print("_"*40)
                 save_credentials.delete_credentials()
                 print(f"your credentials for : {search_credentials.aacount} successfuly deleted!!")
@@ -192,7 +190,7 @@ def main():
             print(" ")
             print("-"*120)
             break
-         else:
+        else:
             print("I really didn't get that. Please use the short codes")
     
 
